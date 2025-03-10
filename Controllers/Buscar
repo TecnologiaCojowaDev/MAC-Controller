@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesar Archivo y Descargar JSON</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept=".txt">
+    <button id="procesarArchivo">Procesar Archivo</button>
+    
+    <script>
+        document.getElementById("procesarArchivo").addEventListener("click", function() {
+            const fileInput = document.getElementById("fileInput");
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert("Por favor, selecciona un archivo.");
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const lines = event.target.result.split("\n");
+                const jsonData = [];
+                
+                for (let i = 1; i < lines.length; i++) { // Ignorar la primera línea de encabezado
+                    const columns = lines[i].split("\t");
+                    if (columns.length >= 2) {
+                        jsonData.push({
+                            NUMERO: parseInt(columns[0]),
+                            NOMBRE_COMPLETO: columns[1],
+                            MAC_CEL: columns[2] || "",
+                            MAC_TV: columns[3] || "",
+                            MAC_ADICIONAL_1: columns[4] || "",
+                            MAC_ADICIONAL_2: columns[5] || ""
+                        });
+                    }
+                }
+                
+                const jsonString = JSON.stringify(jsonData, null, 2);
+                const blob = new Blob([jsonString], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "data.json";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+            
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>

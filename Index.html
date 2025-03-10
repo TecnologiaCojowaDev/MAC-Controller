@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Buscar MAC en JSON</h2>
+    <label for="mac">Ingresa la MAC a buscar:</label>
+    <input type="text" id="mac" placeholder="00:00:00:00:00:00" style="width: 100%;">
+    <button onclick="buscarMac()">Buscar MAC</button>
+
+    <h3>Resultado:</h3>
+    <pre id="resultado"></pre>
+
+    <script>
+        // URLs para descargar los datos como JSON
+        const urlCojowa = 'MACS/mac_cojowa.json';
+        const urlUnifi = 'MACS/mac_unifi_2.json';
+
+        // Función para cargar JSON
+        async function loadJSON(url) {
+            const response = await fetch(url);
+            return await response.json();
+        }
+
+        // Función para buscar MAC
+        async function buscarMac() {
+            const mac = document.getElementById("mac").value.trim().toLowerCase();
+
+            const dfCojowa = await loadJSON(urlCojowa);
+            const dfUnifi = await loadJSON(urlUnifi);
+
+            const columnasCojowa = ["numero", "nombre completo", "mac cel", "mac adicional", "mac adicional_2"];
+            const columnasUnifi = ["mac_unifi", "estado"];
+
+            const dfCoincidenciaCojowa = dfCojowa.filter(row =>
+                row["mac cel"].toLowerCase() === mac ||
+                row["mac adicional"].toLowerCase() === mac ||
+                row["mac adicional_2"].toLowerCase() === mac
+            );
+
+            const dfCoincidenciaUnifi = dfUnifi.filter(row => row["mac_unifi"].toLowerCase() === mac);
+
+            let resultado = "";
+
+            if (dfCoincidenciaCojowa.length > 0) {
+                resultado += "\n🔹 Resultado encontrado en mac_cojowa.json:\n";
+                resultado += JSON.stringify(dfCoincidenciaCojowa, null, 2);
+            } else if (dfCoincidenciaUnifi.length > 0) {
+                resultado += "\n🔹 La MAC no está en mac_cojowa.json, pero sí en mac_unifi_2.json:\n";
+                resultado += JSON.stringify(dfCoincidenciaUnifi, null, 2);
+            } else {
+                resultado += "\n❌ La MAC no se encontró en ninguno de los archivos.";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>
