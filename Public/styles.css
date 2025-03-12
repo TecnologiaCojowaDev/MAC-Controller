@@ -1,31 +1,129 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fondo */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
     text-align: center;
+    padding: 20px;
 }
 
-input {
-    width: 60%;
-    padding: 8px;
-    margin: 10px 0;
+/* Encabezado */
+h2 {
+    color: #d32f2f; /* Rojo */
+    margin-bottom: 15px;
 }
 
-button {
-    padding: 10px 15px;
-    cursor: pointer;
+h3 {
+    color: #1565c0; /* Azul */
 }
 
-table {
+/* Contenedor */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
     margin: 20px auto;
+}
+
+/* Input */
+input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #1565c0;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Botón */
+button {
+    background-color: #d32f2f; /* Rojo */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #b71c1c; /* Rojo más oscuro */
+}
+
+/* Tabla */
+table {
+    width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 10px;
+    text-align: center;
 }
 
+/* Encabezado de la tabla */
 th {
-    background: #f4f4f4;
+    background-color: #1565c0; /* Azul */
+    color: white;
+}
+
+/* Alternar colores de filas */
+tbody tr:nth-child(odd) {
+    background-color: #e3f2fd; /* Azul claro */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fbe9e7; /* Rojo claro */
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 15px;
+}
+/* Botones */
+button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #b71c1c;
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Botón de usuarios */
+.user-btn {
+    background-color: #1565c0;
+}
+
+.user-btn:hover {
+    background-color: #0d47a1;
 }
