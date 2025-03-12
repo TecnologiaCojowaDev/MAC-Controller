@@ -1,0 +1,49 @@
+/* Botón de volver */
+.back-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 15px;
+}
+
+.back-btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #1976d2;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Colores para UNIFI */
+.unifi-yes {
+    background-color: #e3f2fd;
+    color: white;
+}
+
+.unifi-no {
+    background-color: #fbe9e7;
+    color: white;
+}

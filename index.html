@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cojowa MAC </title>
+    <title>Cojowa MAC</title>
     <link rel="stylesheet" href="Public/styles.css">
     <link rel="icon" type="image/png" href="assets/Logo.png">
-
 </head>
 <body>
-    <h2>Buscar MAC en JSON</h2>
-    <label for="mac">Ingresa la MAC a buscar:</label>
-    <input type="text" id="mac" placeholder="00:00:00:00:00:00">
-    <button onclick="buscarMac()">Buscar MAC</button>
+    <div class="container">
+        <img src="assets/Logo.png" alt="Logo Cojowa" class="logo">
+        <h2>Buscar MAC en JSON</h2>
+        
+        <div class="search-container">
+            <input type="text" id="mac" placeholder="00:00:00:00:00:00">
+            <button onclick="buscarMac()">🔍 Buscar MAC</button>
+            <button class="user-btn" onclick="window.location.href='src/views/usuarios.html'">
+                👤 Ver Usuarios
+            </button>
+        </div>
 
-    <h3>Resultados:</h3>
-    <table id="resultadoTabla">
-        <thead>
-            <tr>
-                <th>Fuente</th>
-                <th>ID</th>
-                <th>MAC</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+        <h3>Resultados:</h3>
+        <table id="resultadoTabla">
+            <thead>
+                <tr>
+                    <th>Fuente</th>
+                    <th>ID</th>
+                    <th>MAC</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <script type="module" src="./src/controllers/macController.js"></script>
 </body>
