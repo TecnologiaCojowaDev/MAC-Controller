@@ -15,6 +15,27 @@ body {
 }
 
 /* Encabezado */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.availability-btn {
+    background-color: #4CAF50; /* Verde elegante */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.availability-btn:hover {
+    background-color: #388E3C;
+}
+
 h2 {
     color: #d32f2f; /* Rojo */
     margin-bottom: 15px;
@@ -48,16 +69,17 @@ input {
 button {
     background-color: #d32f2f; /* Rojo */
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    margin: 5px;
 }
 
 button:hover {
-    background-color: #b71c1c; /* Rojo más oscuro */
+    background-color: #b71c1c;
 }
 
 /* Tabla */
@@ -73,7 +95,6 @@ th, td {
     text-align: center;
 }
 
-/* Encabezado de la tabla */
 th {
     background-color: #1565c0; /* Azul */
     color: white;
@@ -81,11 +102,11 @@ th {
 
 /* Alternar colores de filas */
 tbody tr:nth-child(odd) {
-    background-color: #e3f2fd; /* Azul claro */
+    background-color: #e3f2fd;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #fbe9e7; /* Rojo claro */
+    background-color: #fbe9e7;
 }
 
 /* Logo */
@@ -93,22 +114,6 @@ tbody tr:nth-child(even) {
     width: 100px;
     display: block;
     margin: 0 auto 15px;
-}
-/* Botones */
-button {
-    background-color: #d32f2f;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin: 5px;
-}
-
-button:hover {
-    background-color: #b71c1c;
 }
 
 /* Contenedor de búsqueda */
@@ -126,4 +131,14 @@ button:hover {
 
 .user-btn:hover {
     background-color: #0d47a1;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
 }

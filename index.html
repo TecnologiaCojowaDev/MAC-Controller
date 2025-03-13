@@ -8,9 +8,14 @@
     <link rel="icon" type="image/png" href="assets/Logo.png">
 </head>
 <body>
+    <div class="header">
+        <button class="availability-btn" onclick="window.location.href='src/views/disponibles.html'">
+            ✅ Disponibles
+        </button>
+    </div>
     <div class="container">
         <img src="assets/Logo.png" alt="Logo Cojowa" class="logo">
-        <h2>Buscar MAC en JSON</h2>
+        <h2>Buscar MAC</h2>
         
         <div class="search-container">
             <input type="text" id="mac" placeholder="00:00:00:00:00:00">
@@ -33,7 +38,9 @@
             <tbody></tbody>
         </table>
     </div>
-
+    <footer>
+        <p>Desarrollado por: <strong>Gabriel Carrillo</strong></p>
+    </footer>
     <script type="module" src="./src/controllers/macController.js"></script>
 </body>
 </html>
