@@ -3,31 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios - Cojowa</title>
-    <link rel="stylesheet" href="../../Public/styles.css">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="./style/UsuariosStyles.css">
+    <link rel="icon" type="image/png" href="../../assets/Logo.png">
 </head>
 <body>
-    <h2>Lista de Usuarios en Cojowa</h2>
-    
-    <button onclick="window.location.href='../../index.html'">🔍 Buscar MAC</button>
+    <div class="container">
+        <h2>Gestión de Usuarios</h2>
+        <button class="back-btn" onclick="window.location.href='../../index.html'">⬅ Volver</button>
 
-    <table id="usuariosTabla">
-        <thead>
-            <tr>
-                <th>Número</th>
-                <th>Nombre</th>
-                <th>MAC Celular</th>
-                <th>MAC TV</th>
-                <th>MAC Adicional 1</th>
-                <th>MAC Adicional 2</th>
-                <th>MAC Adicional 3</th>
-                <th>Unifi</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar usuario...">
+            <select id="searchType">
+                <option value="nombre">Por Nombre</option>
+                <option value="id">Por ID</option>
+                <option value="mac">Por MAC</option>
+            </select>
+            <button id="searchBtn">Buscar</button>
+            <button id="addUserBtn" class="add-btn">➕ Añadir Usuario</button>
 
-    <script type="module" src="../controllers/usuariosController.js"></script>
+            <div class="button-container">
+                <button id="editBtn" disabled>✏️ Editar</button>
+                <button id="deleteBtn" disabled>🗑️ Eliminar</button>
+            </div>
+        </div>
+
+        <table id="usuariosTabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>MAC Cel</th>
+                    <th>MAC TV</th>
+                    <th>MAC 1</th>
+                    <th>MAC 2</th>
+                    <th>MAC 3</th>
+                    <th>En Unifi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    <script src="../controllers/usuariosController.js" type="module"></script>
 </body>
 </html>
